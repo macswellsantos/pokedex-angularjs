@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR" ng-app="pokedexApp">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokédex - Identifique o seu pokémon</title>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://bootswatch.com/3/united/bootstrap.css">
+        <link rel="stylesheet" href="style.css">
+
+        <script src="../node_modules/angular/angular.js"></script>
+        
+        <script src="pokedex.module.js"></script>
+        <script src="pokedex.service.js"></script>
+        <script src="pokedex.controller.js"></script>
+
+    </head>
+    <body>
+
+        <!-- Image and text -->
+        <nav class="navbar navbar-default"">
+            <a class="navbar-brand" href="#">
+            Pokédex - <span>Identifique o seu pokémon</span>
+            </a>
+        </nav>
+
+        <div class="principal" ng-controller="PokedexController as vm">
+            <div class="left">
+                <div class="img-pkm">
+                    <img src="{{vm.img}}" width="200" height="200" />
+                </div>
+                
+                <div class="form-group">
+                    <input class="form-control" ng-model="vm.numero" type="number" maxlength="3" style="margin: auto; width: 90px; height: 30px; font-size:20px; text-align: center;" >
+                  </div>
+                 
+                <div style="margin-left:140px; margin-top: 30px;">
+                    <button class="btn btn-success" ng-click="vm.buscar(vm.numero)" >Procurar</button>
+                 </div>
+            </div>
+            <div class="right">
+     
+                <div class="box-name">
+                    <span id="name">{{vm.name | uppercase}}</span>
+                </div>
+                <div id="stats">{{vm.info}}
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>    
+    </body>
+</html>
